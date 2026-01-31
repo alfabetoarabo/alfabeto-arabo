@@ -1,15 +1,10 @@
 import React from 'react';
-import AdBanner from './AdBanner';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-primary text-white pt-12 pb-6">
       <div className="container mx-auto px-4 flex flex-col items-center gap-8">
-        {/* AdSense Footer Banner 970x90 */}
-        <div className="w-full max-w-[970px] h-[90px] hidden md:block bg-white/10 rounded-lg overflow-hidden">
-          <AdBanner slot="footer-slot-id" className="w-full h-full bg-transparent text-white/50 border-white/10" />
-        </div>
-
+        
         <div className="text-center space-y-2">
           <h2 className="text-2xl font-heading text-secondary">Alfabeto Arabo</h2>
           <p className="text-blue-200 max-w-md mx-auto">

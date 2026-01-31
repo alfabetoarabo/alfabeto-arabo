@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import LetterCard from './components/LetterCard';
 import TextAnalyzer from './components/TextAnalyzer';
-import AdBanner from './components/AdBanner';
 import SEOContent from './components/SEOContent';
 import { alphabet } from './data/alphabet';
 
@@ -58,10 +57,6 @@ const HomePage = () => (
       {/* Sidebar - Right aligned on large screens, centered on small */}
       <aside className="w-full lg:w-[320px] flex flex-col gap-8 shrink-0 items-center lg:items-start">
          <div className="sticky top-24 space-y-8 w-full max-w-[320px]">
-             {/* AdSense Sidebar Banner 300x250 */}
-            <div className="w-full h-[250px] bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 mx-auto">
-               <AdBanner slot="sidebar-slot-id" className="w-full h-full" />
-            </div>
             
             {/* Educational Fact Box */}
             <div className="bg-white p-8 rounded-2xl border-l-8 border-secondary shadow-md hover:shadow-lg transition-shadow">
@@ -71,10 +66,6 @@ const HomePage = () => (
                 </p>
             </div>
 
-            {/* Second Ad Slot for long pages */}
-             <div className="w-full h-[250px] bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 mx-auto hidden lg:block">
-               <AdBanner slot="sidebar-slot-2-id" className="w-full h-full" />
-            </div>
          </div>
       </aside>
     </div>
