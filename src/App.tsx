@@ -25,57 +25,64 @@ const ScrollToTop = () => {
 };
 
 const HomePage = () => (
-  <div className="flex flex-col lg:flex-row gap-8">
+  <div className="flex flex-col gap-12 max-w-7xl mx-auto">
     
-    {/* Main Content Area */}
-    <div className="flex-1">
-      {/* Introduction / Hero */}
-      <section className="mb-12 text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-heading text-primary">
-            Impara l'Alfabeto Arabo
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Benvenuto nella nostra guida interattiva. Esplora le 28 lettere dell'alfabeto arabo, 
-            impara la loro grafia e clicca per ascoltare la pronuncia corretta con trascrizione fonetica.
-          </p>
-      </section>
+    {/* Introduction / Hero - Centered */}
+    <section className="text-center max-w-4xl mx-auto px-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 font-heading text-primary leading-tight">
+          Impara l'Alfabeto Arabo
+        </h2>
+        <p className="text-xl text-gray-600 leading-relaxed">
+          Benvenuto nella nostra guida interattiva. Esplora le 28 lettere dell'alfabeto arabo, 
+          impara la loro grafia e clicca per ascoltare la pronuncia corretta con trascrizione fonetica.
+        </p>
+    </section>
 
-      {/* Alphabet Grid */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6" aria-label="Griglia delle lettere arabe">
-        {alphabet.map((letter) => (
-           <LetterCard key={letter.id} letter={letter} />
-        ))}
-      </section>
+    <div className="flex flex-col lg:flex-row gap-12 justify-center">
+      {/* Main Content Area */}
+      <div className="flex-1 max-w-5xl mx-auto w-full">
+        
+        {/* Alphabet Grid */}
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center" aria-label="Griglia delle lettere arabe">
+          {alphabet.map((letter) => (
+             <LetterCard key={letter.id} letter={letter} />
+          ))}
+        </section>
 
-      {/* SEO Content Section */}
-      <SEOContent />
+        {/* SEO Content Section */}
+        <div className="mt-16">
+          <SEOContent />
+        </div>
 
-      {/* Text Analyzer Tool */}
-      <TextAnalyzer />
+        {/* Text Analyzer Tool */}
+        <div className="mt-16">
+          <TextAnalyzer />
+        </div>
+      </div>
+
+      {/* Sidebar - Right aligned on large screens, centered on small */}
+      <aside className="w-full lg:w-[320px] flex flex-col gap-8 shrink-0 items-center lg:items-start">
+         <div className="sticky top-24 space-y-8 w-full max-w-[320px]">
+             {/* AdSense Sidebar Banner 300x250 */}
+            <div className="w-full h-[250px] bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 mx-auto">
+               <AdBanner slot="sidebar-slot-id" className="w-full h-full" />
+            </div>
+            
+            {/* Educational Fact Box */}
+            <div className="bg-white p-8 rounded-2xl border-l-8 border-secondary shadow-md hover:shadow-lg transition-shadow">
+                <h3 className="text-2xl font-heading font-bold text-primary mb-4">Lo Sapevi?</h3>
+                <p className="text-gray-600 text-base leading-relaxed">
+                    L'arabo si scrive <strong>da destra a sinistra</strong>. Per questo motivo, le lettere cambiano forma fluendo in quella direzione!
+                </p>
+            </div>
+
+            {/* Second Ad Slot for long pages */}
+             <div className="w-full h-[250px] bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 mx-auto hidden lg:block">
+               <AdBanner slot="sidebar-slot-2-id" className="w-full h-full" />
+            </div>
+         </div>
+      </aside>
     </div>
-
-    {/* Sidebar */}
-    <aside className="w-full lg:w-[300px] flex flex-col gap-8 order-first lg:order-last">
-       <div className="sticky top-24 space-y-8">
-           {/* AdSense Sidebar Banner 300x250 */}
-          <div className="w-full max-w-[300px] h-[250px] mx-auto lg:mx-0 bg-white rounded-lg overflow-hidden shadow-sm">
-             <AdBanner slot="sidebar-slot-id" className="w-full h-full" />
-          </div>
-          
-          {/* Educational Fact Box */}
-          <div className="bg-white p-6 rounded-xl border-l-4 border-secondary shadow-sm">
-              <h3 className="text-xl font-heading font-bold text-primary mb-3">Lo Sapevi?</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                  L'arabo si scrive da destra a sinistra. Le lettere cambiano forma a seconda della loro posizione nella parola (iniziale, mediana, finale o isolata).
-              </p>
-          </div>
-
-          {/* Second Ad Slot for long pages */}
-           <div className="w-full max-w-[300px] h-[250px] mx-auto lg:mx-0 bg-white rounded-lg overflow-hidden shadow-sm hidden lg:block">
-             <AdBanner slot="sidebar-slot-2-id" className="w-full h-full" />
-          </div>
-       </div>
-    </aside>
 
   </div>
 );
@@ -84,7 +91,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+      <div className="min-h-screen flex flex-col font-sans">
         <Header />
         
         <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
