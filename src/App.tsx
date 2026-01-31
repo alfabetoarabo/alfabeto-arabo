@@ -6,7 +6,6 @@ import LetterCard from './components/LetterCard';
 import TextAnalyzer from './components/TextAnalyzer';
 import AdBanner from './components/AdBanner';
 import SEOContent from './components/SEOContent';
-import AdminPage from './pages/AdminPage';
 import { alphabet } from './data/alphabet';
 
 // Wrapper component to handle route changes (like analytics)
@@ -15,10 +14,6 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    // Simple mock counter for local storage demo
-    const current = localStorage.getItem('site_visits') || '0';
-    localStorage.setItem('site_visits', (parseInt(current) + 1).toString());
   }, [pathname]);
 
   return null;
@@ -97,7 +92,6 @@ function App() {
         <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </main>
         
